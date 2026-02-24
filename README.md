@@ -33,6 +33,27 @@ The loan application journey in this model follows these stages:
 - Stored in `Disbursement`  
 
 ---
+## Entity Relationship Flow
+
+```
+Customer (1)
+   |
+   | applies for
+   ▼
+LoanApplication (M)
+   | 1:1 underwriting
+   ▼
+UnderwritingReview (1)
+   | if APPROVE
+   ▼
+Sanction (1)
+   | 0..1 booking
+   ▼
+LoanAccount (0..1)
+   | 1:M tranches
+   ▼
+Disbursement (M)
+```
 ## Important Relationships
 
 - Customer → LoanApplication (1:M)  
